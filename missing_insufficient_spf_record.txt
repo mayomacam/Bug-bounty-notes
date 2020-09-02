@@ -1,0 +1,22 @@
+1. sender policy framework , or SPF , is a technical stander that helps protect email send
+senders and recipients from spam, spoofing and phishing. it is a form of email authentication
+2.specifically , it defines a way to validate that an email message was sent from an authorized mail server , in order to 
+detect forgery and to prevent spam. it was designed to suppliment SMTP, the basic protocol used to send email, because 
+SMTP does not itself include any authentication mechanisms.
+#==========================================================================================
+testing spf 
+1.how to check domain have spf record or not?
+ website - spf query tool
+or spf record testing tools
+
+go to
+1. http://www.kitterman.com/spf/validate.html
+2. https://mtoolbox.com
+
+#============================================================================================
+
+exploitation of spf
+
+what attacker gain
+1. you can use any fake mailer to forge the mail of a vulnerable domain
+2. go to https://anonymousemail.me/

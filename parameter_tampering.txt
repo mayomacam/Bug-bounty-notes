@@ -1,0 +1,5 @@
+the web parameter tampering attack is based on the manipulation of parameter exchanged between client and server in order to modify application data, such as user credentials and permissions, price, and quantity of products, etc.
+usually , this fields or url query strings , and is used to increase application functionality and control.
+
+#=======================================================================================================================
+

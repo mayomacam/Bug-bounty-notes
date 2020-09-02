@@ -1,0 +1,4 @@
+any.com/?paramer=http://hackersera.com
+
+more details in ssrf folder
+

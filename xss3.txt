@@ -1,0 +1,35 @@
+Xss through filter bypassed payloads
+
+when there are multiple website then it's not normally possible to go on every website
+so for that
+ ex. aaa.com
+
+we use burp suite
+
+1. spider this website
+spider will crawl all the urls
+
+2.i will filter urls having parameter
+
+3.then i will check my input is reflecting or not
+
+4.i will try to inject any javascript code
+
+there is two way to create payload
+1. one is to build manually your payload
+2. just use xss payloads file
+
+xss payload file already in xss folder
+
+
+#======================================================================================
+xss on live website
+
+#======================================================================================
+
+xss hunting live part 1
+2,3
+
+#=====================================================================================
+
+

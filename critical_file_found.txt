@@ -1,0 +1,3 @@
+any.com/filename
+
+use dicc.txt payload for this

@@ -1,0 +1,65 @@
+Host Header Hunting 
+
+status code of 200 | 201 | 202 | 203 | 204 
+
+status code of 300 | 301 | 302 | 303 | 304 
+
+hackersera.com 
+
+First method to find host header injection 
+
+change real host to bing.com 
+
+second method to find host header attack injection 
+
+change host from realweb.com to bing.com 
+set X-Forwarded-Host to realweb.com 
+
+3rd method to find host header attack 
+set X-Forwarded-Host to bing.com 
+and Host to realweb.com 
+
+
+--------------------------------------------
+Host Header attack XSS 
+
+https://account.services.universiteitleiden.nl/
+
+
+-------------------------------------------
+
+Host Header attack on password Reset Page 
+
+any.com
+username - offeseivehunter
+
+they sent me mail having this 
+
+reset your password by clicking on that link 
+
+any.com/password_reseet?code=dgdgdhjdjhgdh
+
+
+lets take example there is a host header attack 
+
+
+password reset page 
+
+offesivehunter@gmail.com 
+intercepted that request on burpsuite 
+
+Host to hackersera.com 
+
+will receive a mail having same thing 
+
+hackersera.com/password_reset?code=hshdghd
+
+
+------------------------------------------
+Web Cache Posioning through Host Header attack 
+
+https://account.services.universiteitleiden.nl/
+
+
+
+

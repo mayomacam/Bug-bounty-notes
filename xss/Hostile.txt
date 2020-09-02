@@ -1,0 +1,36 @@
+Hostile Subdomain Takeover
+
+u have a wbsite (any.com)
+
+you want a support system 
+
+support.any.com from zendesk.com(support)
+
+you pointed this subdomain to zendesk support 
+
+later on you cancelled or service expired 
+
+
+but you forgot to remote the redirection of pointining subdomain to zendesk.com {support}
+
+if an attcker will get to know this situtation 
+
+
+attacker will simply go to zendesk.com 
+
+wil buy their support service 
+
+after that they will add this subdomain (support.any.com ) as theirs own 
+
+and they will succesfully claimed that this subdomain is belongs to an attacker because it wont verify on zendesk
+	
+steps is very simple for Hostile Sub domain takeover 
+
+1. you have to find a subdomain pointing to third party {is an alais of x.com}
+
+2. make sure their service is inactive or cancelled or expired 
+
+3. go that third party website register as client and when they will ask to point your subdomain you just give subdomain.com 
+
+
+

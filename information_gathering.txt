@@ -1,0 +1,52 @@
+basic terminilogies
+
+1. Injection Point 
+where vulnerability can be exsist
+
+2. vulnerability
+is a flaw of weakness of system
+
+3. payload is a script or code that used to identify vulnerability
+
+4.expoitation
+taking advamtage of that vulnerability to gain system access
+
+
+information
+1.site 
+2.subdomains
+ :---- virustotal.com
+3. you have to ranked subdomain by popularity
+populer  to unpopuler
+find less travelled road
+
+
+4.find ip address 
+
+ping domain name - give ipaddress
+
+5. which programming language this website is using
+
+site: website or domain
+or use this command
+whatweb website
+
+6.open ports and services
+
+namp website
+
+-Pn for ping request
+
+aggressive scanning
+nmap ip -sV
+
+to detail
+nmap ip |nmap -sC ip
+
+7.server
+iis | apache | tomcat | ngnix
+
+whatweb website
+
+
+

@@ -1,0 +1,40 @@
+open redirection
+
+it's a part of phishing
+
+for that
+
+1.find aany url parameter having some kind of tendency to redirect anywhere
+
+2.try common parameter list in xss
+
+dest redirect  uri path  continue  url  window  to  out  view  dir  show  navigation  open  url  file  
+
+val validate domain  callback return   page feed   host port next   data    reference site   html
+
+
+3.url redirection on path fragments
+
+ex-  any.com/payloads
+any.com/bing.com
+any.com//bing.com
+
+#==============================================================================================
+
+url redirection through get parameter
+
+look for common parameter
+
+#=============================================================================================
+
+url redirection through path fragments
+/ or //
+
+#+==================================================
+
+by payloads
+
+
+
+
+

@@ -1,0 +1,10 @@
+csrf
+
+forces to end user to execute unwanted actions.
+injection point:
+csrf can be get and post based
+but not cookie and header based
+
+csrf on logout page:
+log out page link send
+

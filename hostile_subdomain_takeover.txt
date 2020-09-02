@@ -1,0 +1,31 @@
+hackers can claim subdomains with the help of external services. this attack is practically non-traceble,
+ and affect at least 17 large service providers and multiple domain are affected.
+
+#========================================================
+example
+
+u have a website
+you want a support system
+support.any.com from zendesk.com(support)
+you pointed this subdomain to zendesk support
+later on you cancelled or service expired
+
+you forgot to remote the redirection of pointining subdomain to zendesk.com(support)
+if an attacker will get to know this sitution 
+attacker will simply go to zendesk will by their support service after that
+they will add this subdomain add theirs(hackers)
+and they will successfully claim that this belong to attacker
+it won't verify on zendesk
+
+#==================================================================================
+
+http://labs.detectify.com/post/109964122636/hostile-subdomain-takeover-using
+
+#======================================================================================
+
+download HostileSubBruteforcer on linux 
+
+https://github.com/nahamsec/HostileSubBruteforcer
+
+#====================================================================================
+

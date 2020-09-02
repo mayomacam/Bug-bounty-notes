@@ -1,0 +1,16 @@
+CORS _-> have pdf so try read all pdf CORS contain
+
+insecure cors through request header
+
+1.try to find embed ?in url
+
+so there you can try add a header
+
+
+
+#========================================
+exploitation of insecure cors
+
+1. we can use curl commands
+using terminal
+

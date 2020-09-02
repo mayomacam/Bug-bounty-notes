@@ -1,0 +1,86 @@
+in many cases , developers are trusing the http host header value and using it to generate links, import scripts and even generate password
+resets links with it's value .
+this is a very bad idea , because the http host header can be controlled by an attacker . 
+this can be eploited using web-cache poisoning and by abusing alternative channels like password reset emails
+
+#+============================================================================================================
+
+host header attack hunting
+
+1.find a url having status code 2XX | 3XX
+2.you have to try once on each 2XX
+
+#==============================================================================================================
+
+1.
+
+2.status code of 200 | 201| 202| 203| 204
+
+3.status code of 300 | 301| 302| 303| 304
+
+website
+
+A . first method to find host header injection
+
+1.change real host to bing.com
+
+B. second method to find host header attack injection
+
+1.change host from current to bing.com or other
+2.set X-Forwarded-Host to current host
+
+3.third method to find host header attack
+
+1.set X-forwarded-Host to bing.com
+2.host to original host
+
+#==============================================================================================================
+
+web cache poisoning
+
+1.find a url having status code 2xx | 3xx
+
+2.you have to try once on each 2xx
+
+3.if internal domain will change after that then there is host attack web cache poisoning
+
+#===========================================================================================================
+
+host header attack: password reset poisoning
+
+webiste 
+username
+
+they send me mail having this -----
+
+reset your password by clicking on that link
+
+like-
+any.com/password_reset?code=asfhakjdfhjdsjkdfg
+
+lets take example there is a host header attack 
+password reset page
+
+email account 
+intercepted that request on burpsuite
+
+host to hackerera.com
+
+will receive a mail having same thing
+any.com/password_reseet?code=asfhakjdfhjdsjkdfg
+
+
+#=======================================================================================================
+
+xss through host header
+
+1.find a urlhaving status code 2xx |3xx
+2.try once on each 2XX| 3xx
+
+3.just give your input to host parameter if they reflect back in response there may be xss through host header attack
+
+#======================================================================================================
+
+
+
+

@@ -1,0 +1,39 @@
+may be union based
+error based
+double query based
+double boolean based
+
+blind time based sqli
+
+#==========================================================================================================
+sqli labs
+
+sqli-labs github
+audi
+
+#=============================================================================================================
+
+injection point for sql injection
+
+1.can be get based
+2.can be post based
+3.can be header based
+4.can be cookie based
+
+#==========================================================================================
+get based :
+attacker have to attack through urls parameter
+
+post based:
+find html form that execute sqli query
+
+header based :
+you have to attack through headers parameter such as referre, user agent, location, host
+
+cookie based:
+you have to find cookie parameter
+example:
+cookie:username=abs;
+
+#========================================================================================
+

